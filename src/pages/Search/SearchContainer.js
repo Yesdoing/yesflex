@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SearchPresenter from "components/Search";
+import SearchPresenter from "./SearchPresenter";
 
 export default class extends Component {
   state = {

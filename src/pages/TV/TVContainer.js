@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TVPresenter from "components/TV";
+import TVPresenter from "./TVPresenter";
 
 export default class extends Component {
   state = {
