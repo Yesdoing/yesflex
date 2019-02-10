@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import Home from 'pages/Home';
-import Header from 'components/Header';
+import Header from 'components/common/Header';
 import Search from 'pages/Search';
 import TV from 'pages/TV';
 
