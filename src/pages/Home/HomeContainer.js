@@ -10,6 +10,10 @@ export default class extends Component {
     loading: true,
   };
 
+  componentDidMount() {
+    
+  }
+
   render() {
     const { nowPlaying, upcoming, popular, error, loading } = this.state;
 
