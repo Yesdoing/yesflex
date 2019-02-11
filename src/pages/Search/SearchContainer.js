@@ -6,14 +6,16 @@ export default class extends Component {
   state = {
     movieResults: null,
     tvResults: null,
-    searchTerm: null,
+    searchTerm: "",
     error: null,
     loading: false
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
+      this.searchByTerm();
     }
   };
 
@@ -30,7 +32,7 @@ export default class extends Component {
       this.setState({
         movieResults,
         tvResults
-      })
+      });
     } catch (error) {
       this.setState({ error: "Can't find results" });
     } finally {
@@ -38,9 +40,18 @@ export default class extends Component {
     }
   };
 
+  updateTerm = event => {
+    const {
+      target: { value }
+    } = event;
+    this.setState({
+      searchTerm: value
+    });
+  };
+
   render() {
     const { movieResults, tvResults, searchTerm, error, loading } = this.state;
-    const { handleSubmit } = this;
+    const { handleSubmit, updateTerm } = this;
     return (
       <SearchPresenter
         movieResults={movieResults}
@@ -49,7 +60,8 @@ export default class extends Component {
         error={error}
         loading={loading}
         handleSubmit={handleSubmit}
+        updateTerm={updateTerm}
       />
     );
   }
-}
+};
